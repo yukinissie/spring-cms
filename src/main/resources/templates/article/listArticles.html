@@ -1,0 +1,52 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>記事一覧</title>
+</head>
+<body>
+<h3>記事一覧</h3>
+<table>
+    <thead>
+        <tr>
+            <th>
+                articleId
+            </th>
+            <th>
+                title
+            </th>
+            <th>
+                body
+            </th>
+            <th>
+                category
+            </th>
+            <th>
+                visibleStatus
+            </th>
+            <th>
+                tags
+            </th>
+        </tr>
+    </thead>
+    <tb th:each="article: ${articles}">
+        <tr>
+            <td th:text="${article.articleId}"></td>
+            <td th:text="${article.title}"></td>
+            <td th:text="${article.body}"></td>
+            <td th:text="${article.category.name.value}"></td>
+            <td th:text="${article.visibleStatus}"></td>
+            <td th:text="${tag.name}" th:each="tag: ${article.tags}"></td>
+        </tr>
+    </tb>
+
+</table>
+
+<form th:action="@{/logout}" method="post">
+    <button>ログアウト</button>
+</form>
+</body>
+</html>

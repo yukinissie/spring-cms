@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+</head>
+<body>
+<h3>ログインフォーム</h3>
+
+<p th:if="${param.error}">
+    Error!
+</p>
+<form th:action="@{/login}" method="POST">
+    <table>
+        <tr>
+            <td><lebel for="username">User:</lebel></td>
+            <td><input type="text" id="username"
+                       name="username" value="aaaa" /></td>
+        </tr>
+        <tr>
+            <td><label for="password">Password:</label></td>
+            <td><input type="password" id="password"
+                        name="password" value="demo" /></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td><button type="submit">ログイン</button></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
